@@ -1,5 +1,5 @@
 [project]
-name = "support-triage"
+name = "n8n-support-agent"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -11,7 +11,7 @@ dependencies = [
 ]
 
 [project.scripts]
-support-triage = "support_triage:main"
+n8n-support-agent = "n8n_support_agent:main"
 
 [build-system]
 requires = ["uv_build>=0.12.5,<0.13.0"]
@@ -37,3 +37,6 @@ typeCheckingMode = "standard"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
+
+[tool.uv.build-backend]
+module-name = "n8n_support_agent"
