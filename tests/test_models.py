@@ -21,7 +21,7 @@ def test_ticket_keeps_values():
     assert ticket.body == "My webhook stopped working."
 
 
-def test_ticket_valid_subject():
+def test_ticket_strips_whitespace_from_subject():
     ticket = Ticket(
         subject="  Webhook not working     ", body="My webhook stopped working"
     )
