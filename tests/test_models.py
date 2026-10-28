@@ -21,6 +21,13 @@ def test_ticket_keeps_values():
     assert ticket.body == "My webhook stopped working."
 
 
+def test_ticket_valid_subject():
+    ticket = Ticket(
+        subject="  Webhook not working     ", body="My webhook stopped working"
+    )
+    assert ticket.subject == "Webhook not working"
+
+
 def test_triage_keeps_values():
     triage = Triage(
         category=Category.NODES,
