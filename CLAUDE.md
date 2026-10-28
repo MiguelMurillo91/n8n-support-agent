@@ -1,7 +1,7 @@
 # n8n-support-agent
 
 ## What this is
-A support agent for N8N
+A support agent for n8n
 
 ## Tools
 - Python 3.14, managed with uv. Never use pip.
