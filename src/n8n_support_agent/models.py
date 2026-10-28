@@ -4,6 +4,7 @@ from typing import Annotated
 from pydantic import BaseModel, Field, StringConstraints
 
 NonEmptyStr = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1)]
+Reason = Annotated[NonEmptyStr, StringConstraints(max_length=300)]
 
 
 class Category(StrEnum):
@@ -33,4 +34,4 @@ class Triage(BaseModel):
     priority: Priority
     escalate: bool
     confidence: float = Field(ge=0.0, le=1.0)
-    reason: str = Field(min_length=1, max_length=300)
+    reason: Reason

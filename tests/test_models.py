@@ -95,8 +95,9 @@ def test_accepts_confidence_bounds(confidence: float):
     assert Triage.model_validate(data).confidence == confidence
 
 
-def test_rejects_empty_reason():
-    data = valid_triage_data() | {"reason": ""}
+@pytest.mark.parametrize("reason", ["", "   "])
+def test_rejects_empty_reason(reason: str):
+    data = valid_triage_data() | {"reason": reason}
     with pytest.raises(ValidationError, match="string_too_short"):
         Triage.model_validate(data)
 
